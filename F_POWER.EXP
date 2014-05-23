@@ -1,0 +1,25 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Mathematical\/functions' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION F_POWER : REAL
+VAR_INPUT
+	a : REAL;
+	x : REAL;
+	n : REAL;
+END_VAR
+
+
+(*
+version 1.0	1 sep 2006
+programmer 	hugo
+tested by		tobias
+
+this function calculates the power equation f_power = a*x^n
+
+*)
+(* @END_DECLARATION := '0' *)
+F_POWER := a * EXPT(X, N);
+
+END_FUNCTION

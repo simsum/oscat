@@ -1,0 +1,56 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Logic\/generators' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTIONBLOCK TMAX
+VAR_INPUT
+	IN : BOOL;
+	PT : TIME;
+END_VAR
+VAR_OUTPUT
+	Q : BOOL;
+	Z : BOOL;
+END_VAR
+VAR
+	tx : TIME;
+	start : TIME;
+	last_in: BOOL;
+END_VAR
+
+(*
+version 1.0	20. jul. 2008
+programmer 	hugo
+tested by	oscat
+
+Q of tmax will follow IN except that it forces a maximum ontime for the output Q.
+the output Z will be active for one cycle if the output is forced low by the timeout.
+
+*)
+
+(* @END_DECLARATION := '0' *)
+(* read system timer *)
+tx := DWORD_TO_TIME(T_PLC_MS());
+
+Z := FALSE;
+
+IF NOT in THEN
+	Q := FALSE;
+ELSIF IN AND NOT last_in THEN
+	Q := TRUE;
+	start := tx;
+ELSIF (tx - start >= PT) AND Q THEN
+	Q := FALSE;
+	Z := TRUE;
+END_IF;
+
+last_in := IN;
+
+
+
+(* revision history
+hm	20. jul. 2008	rev 1.0
+	original version
+
+*)
+END_FUNCTION_BLOCK

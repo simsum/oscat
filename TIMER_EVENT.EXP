@@ -1,0 +1,25 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE TIMER_EVENT :
+STRUCT
+	TYP : BYTE;
+	CHANNEL : BYTE;
+	DAY : BYTE;
+	START : TOD;
+	DURATION : TIME;
+	LAND : BYTE;
+	LOR : BYTE;
+	LAST : DT;
+END_STRUCT
+END_TYPE
+
+
+(* revision history
+hm	18. oct. 2008	rev 1.0
+	original version
+
+hm	26. jan. 2011	rev 1.1
+	changed type of last to be DT
+*)
+(* @END_DECLARATION := '0' *)

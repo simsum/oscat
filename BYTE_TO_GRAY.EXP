@@ -1,0 +1,29 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Logic\/gate logic' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTION BYTE_TO_GRAY : BYTE
+VAR_INPUT
+	IN : BYTE;
+END_VAR
+
+
+(*
+version 1.0	9. nov. 2009
+programmer 	hugo
+tested by		oscat
+
+this function converts a binary to gray code
+
+*)
+
+(* @END_DECLARATION := '0' *)
+BYTE_TO_GRAY := IN XOR SHR(IN,1);
+
+(* revision history
+hm	9. nov. 2009	rev 1.0
+	original version
+
+*)
+END_FUNCTION

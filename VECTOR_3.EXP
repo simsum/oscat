@@ -1,0 +1,18 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE VECTOR_3 :
+STRUCT
+	X : REAL;
+	Y : REAL;
+	Z : REAL;
+END_STRUCT
+END_TYPE
+
+
+(* revision history
+hm	18. oct. 2008
+	original version
+
+*)
+(* @END_DECLARATION := '0' *)

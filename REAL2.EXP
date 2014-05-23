@@ -1,0 +1,17 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE REAL2 :
+STRUCT
+	R1 : REAL;	(* small value *)
+	RX : REAL;	(* big value *)
+END_STRUCT
+END_TYPE
+
+
+(* revision history
+hm	18. oct. 2008
+	original version
+
+*)
+(* @END_DECLARATION := '0' *)

@@ -1,0 +1,29 @@
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '' *)
+(* @OBJECTFLAGS := '0, 8' *)
+TYPE CONSTANTS_LOCATION :
+STRUCT
+	(* location setup *)
+	DEFAULT : INT := 1; (* 1=germany, 2=austria 3=france 4=belgium-german 5= italien-Südtirol *)
+	LMAX : INT := 5;
+
+	(* language spoken in the location *)
+	LANGUAGE : ARRAY[1..5] OF INT := 2, 2, 3, 2, 2;
+
+END_STRUCT
+END_TYPE
+
+
+(* revision history
+hm	20. oct. 2008	rev 1.0
+	original version
+
+hm	23. dec. 2008	rev 1.1
+	added french holidays
+
+hm	18. jan 2011	rev 1.2
+	added spoken language
+	deleted holidays from structure for more flexibility
+
+*)
+(* @END_DECLARATION := '0' *)

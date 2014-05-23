@@ -1,0 +1,52 @@
+
+(* @NESTEDCOMMENTS := 'Yes' *)
+(* @PATH := '\/Logic\/generators' *)
+(* @OBJECTFLAGS := '0, 8' *)
+(* @SYMFILEFLAGS := '2048' *)
+FUNCTIONBLOCK TOF_1
+VAR_INPUT
+	IN : BOOL;
+	PT : TIME;
+	RST : BOOL;
+END_VAR
+VAR_OUTPUT
+	Q : BOOL;
+END_VAR
+VAR
+	tx : TIME;
+	start : TIME;
+END_VAR
+
+(*
+version 1.0	17. jul. 2008
+programmer 	hugo
+tested by	oscat
+
+TOF_1 will extend a pulse on input in for PT seconds.
+in addition the timer can be cleared asynchronously with rst.
+TOF_1 is the same function as TOF from the standard LIB except the asynchronous reset input.
+
+*)
+
+(* @END_DECLARATION := '0' *)
+(* read system timer *)
+tx := DWORD_TO_TIME(T_PLC_MS());
+
+IF RST THEN
+	Q := FALSE;
+ELSIF IN THEN
+	Q := TRUE;
+	start := tx;
+ELSIF tx - start >= PT THEN
+	Q := FALSE;
+END_IF;
+
+
+
+
+(* revision history
+hm	17. jul. 2008	rev 1.0
+	original version
+
+*)
+END_FUNCTION_BLOCK
